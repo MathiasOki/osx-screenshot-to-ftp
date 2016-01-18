@@ -1,5 +1,5 @@
 # osx-screenshot-to-ftp
-Bash script for OS X Automator for moving screenshots to FTP
+Bash script for OS X to move screenshot to FTP.
 
 ## How to use
 1. Run Atomator
