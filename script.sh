@@ -2,11 +2,13 @@ HOST="example.com"
 USER="admin"
 PASSWD="1234"
 
+COMPUTERHOME="username"
+
 for f in "$@"
 do
 
-DATE=$(date +"%Y_%m_%d_%H_%M_%S")
-REMOTE_NAME="prefix_${DATE}.png"
+FILENAME=$(basename "$f")
+REMOTE_NAME="${FILENAME//[[:space:]]/}"
 REMOTE_PATH="/subdir_if_needed/$REMOTE_NAME"
 URL="http://example.com/$REMOTE_NAME"
 
@@ -18,7 +20,7 @@ ftp -n $HOST <<END_SCRIPT
 	bye
 END_SCRIPT
 
-rm -f "$f"
+mv "$f" "/Users/$COMPUTERHOME/Pictures/Skjermbilder/uploaded/$FILENAME"
 
 echo $URL | pbcopy
 
